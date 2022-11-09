@@ -55,3 +55,21 @@ export const getPublications = `
     content
   }
 `
+
+export const getProfile = `
+  query Profile($id: ProfileId!) {
+    profile(request: { profileId: $id }) {
+      id
+      name
+      bio
+      picture {
+        ... on MediaSet {
+          original {
+            url
+          }
+        }
+      }
+      handle
+    }
+  }
+`
